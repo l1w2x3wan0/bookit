@@ -1,0 +1,34 @@
+{{left_sidebar_enabled,right_sidebar_enabled=False,False}}
+{{extend 'layout.html'}}
+
+Add:
+<input id="douban_bookurl" type="text" maxlength="100" name="wd" value="http://api.douban.com/book/subject/19894102">
+<input id="add_btn" type="submit" value="{{=T('add book')}}">
+<div id="add_retmsg"></div>
+<br />
+<div id="title"></div>
+<br />
+<div id="image"></div>
+<br />
+
+import doulist:
+<input id="douban_doulist" type="text" maxlength="100" name="wd">
+<input id="import_doulist_btn" type="submit" value="{{=T('import doulist')}}">
+<div id="import_retmsg"></div>
+
+Search:
+<form action="{{=URL(c='default',f='search')}}" method="get" target="_blank">
+<input name="key" value="Ben Allison"/>
+<input type="submit" value="search book" />
+</form>
+
+{{block right_sidebar}}
+{{=A(T("Administrative Interface"), _href=URL('admin','default','index'), _class='btn',
+     _style='margin-top: 1em;')}}
+<h6>{{=T("Don't know what to do?")}}</h6>
+<ul>
+  <li>{{=A(T("Online examples"), _href=URL('examples','default','index'))}}</li>
+  <li><a href="http://web2py.com">web2py.com</a></li>
+  <li><a href="http://web2py.com/book">{{=T('Documentation')}}</a></li>
+</ul>
+{{end}}

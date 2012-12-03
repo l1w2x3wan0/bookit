@@ -1,0 +1,24 @@
+{{left_sidebar_enabled,right_sidebar_enabled=False,False}}
+{{extend 'layout.html'}}
+
+<div id="navlinks">
+<a href="{{=URL(c='default',f='newbooks')}}">{{=T("new books")}}</a>
+<a href="{{=URL(c='default',f='allbooks')}}">{{=T("all books")}}</a>
+<a href="{{=URL(c='manage',f='index')}}">{{=T("management console")}}</a>
+<a href="{{=URL(c='my',f='index')}}">{{=T("my library")}}</a>
+</div>
+<form enctype="multipart/form-data" action="search" method="get">
+<input name="key" />
+<input type="submit" value="Search" />
+</form>
+{{block right_sidebar}}
+{{=A(T("Administrative Interface"), _href=URL('admin','default','index'), _class='btn',
+     _style='margin-top: 1em;')}}
+<h6>{{=T("Don't know what to do?")}}</h6>
+<ul>
+  <li>{{=A(T("Online examples"), _href=URL('examples','default','index'))}}</li>
+  <li><a href="http://web2py.com">web2py.com</a></li>
+  <li><a href="http://web2py.com/book">{{=T('Documentation')}}</a></li>
+</ul>
+{{end}}
+
